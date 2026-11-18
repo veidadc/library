@@ -4,7 +4,7 @@
 
 <div class="banner">
     <h1>The University Library</h1>
-    <p>Keep track of the books on the shelf and the people who borrow them.</p>
+    <p>Keep track of the books on the shelf, the people who borrow them, and the notes the staff leave for each other.</p>
     <div class="spines" aria-hidden="true">
         <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
     </div>
@@ -20,5 +20,10 @@
         <div class="nav-card-icon">M</div>
         <div class="nav-card-title">Members</div>
         <div class="nav-card-sub">Students, faculty and regulars</div>
+    </a>
+    <a asp-controller="Notes" asp-action="Index" class="nav-card">
+        <div class="nav-card-icon">N</div>
+        <div class="nav-card-title">Notes</div>
+        <div class="nav-card-sub">Reminders for the staff</div>
     </a>
 </div>
