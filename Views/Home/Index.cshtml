@@ -2,28 +2,42 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="banner">
-    <h1>The University Library</h1>
-    <p>Keep track of the books on the shelf, the people who borrow them, and the notes the staff leave for each other.</p>
-    <div class="spines" aria-hidden="true">
-        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+<section class="welcome">
+    <div>
+        <p class="eyebrow">University Library</p>
+        <h1>Find a book. Lend it. Get it back.</h1>
+        <p class="welcome-lead">One place for the catalogue, the people who borrow from it, and the notes the staff leave for each other.</p>
+        <div class="welcome-actions">
+            <a asp-controller="Books" asp-action="Index" class="btn btn-maroon">Browse books</a>
+            <a asp-controller="Members" asp-action="Index" class="btn btn-outline-maroon">See members</a>
+        </div>
     </div>
-</div>
+    <div class="libcard" aria-hidden="true">
+        <div class="libcard-top"><span>Library card</span><span class="libcard-mark"></span></div>
+        <div class="libcard-body">
+            <div class="libcard-line w60"></div>
+            <div class="libcard-line w40"></div>
+            <div class="libcard-line w75"></div>
+        </div>
+        <div class="libcard-barcode"></div>
+    </div>
+</section>
 
-<div class="nav-cards">
-    <a asp-controller="Books" asp-action="Index" class="nav-card">
-        <div class="nav-card-icon">B</div>
-        <div class="nav-card-title">Books</div>
-        <div class="nav-card-sub">Browse and edit the catalogue</div>
+<h2 class="section-head">Go to</h2>
+<div class="linklist">
+    <a asp-controller="Books" asp-action="Index" class="linkrow">
+        <span class="linkrow-name">Books</span>
+        <span class="linkrow-desc">Browse and edit the catalogue</span>
+        <span class="linkrow-go">Open</span>
     </a>
-    <a asp-controller="Members" asp-action="Index" class="nav-card">
-        <div class="nav-card-icon">M</div>
-        <div class="nav-card-title">Members</div>
-        <div class="nav-card-sub">Students, faculty and regulars</div>
+    <a asp-controller="Members" asp-action="Index" class="linkrow">
+        <span class="linkrow-name">Members</span>
+        <span class="linkrow-desc">Students, faculty and regulars</span>
+        <span class="linkrow-go">Open</span>
     </a>
-    <a asp-controller="Notes" asp-action="Index" class="nav-card">
-        <div class="nav-card-icon">N</div>
-        <div class="nav-card-title">Notes</div>
-        <div class="nav-card-sub">Reminders for the staff</div>
+    <a asp-controller="Notes" asp-action="Index" class="linkrow">
+        <span class="linkrow-name">Notes</span>
+        <span class="linkrow-desc">Reminders for the staff</span>
+        <span class="linkrow-go">Open</span>
     </a>
 </div>
