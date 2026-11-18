@@ -1,0 +1,39 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Books";
+}
+
+<div class="pagehead">
+    <div>
+        <h1>Books</h1>
+        <p class="pagehead-sub">@Model.Count books in the catalogue</p>
+    </div>
+    <a asp-action="Create" class="btn btn-maroon">Add a book</a>
+</div>
+
+<div class="table-card">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th class="right">Price</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td class="strong">@book.Title</td>
+                    <td><span class="pill pill-@((book.Category ?? "none").ToLower())">@(book.Category ?? "—")</span></td>
+                    <td class="right">@(book.Price?.ToString("N2") ?? "—")</td>
+                    <td class="row-actions">
+                        <a asp-action="Edit" asp-route-id="@book.BookId" class="rowlink">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@book.BookId" class="rowlink rowlink-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
