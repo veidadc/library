@@ -1,8 +1,38 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<section class="welcome">
+    <div>
+        <p class="eyebrow">University Library</p>
+        <h1>Find a book. Lend it. Get it back.</h1>
+        <p class="welcome-lead">A small system for the books on the shelf and the people who borrow them.</p>
+        <div class="welcome-actions">
+            <a asp-controller="Books" asp-action="Index" class="btn btn-maroon">Browse books</a>
+            <a asp-controller="Members" asp-action="Index" class="btn btn-outline-maroon">See members</a>
+        </div>
+    </div>
+    <div class="libcard" aria-hidden="true">
+        <div class="libcard-top"><span>Library card</span><span class="libcard-mark"></span></div>
+        <div class="libcard-body">
+            <div class="libcard-line w60"></div>
+            <div class="libcard-line w40"></div>
+            <div class="libcard-line w75"></div>
+        </div>
+        <div class="libcard-barcode"></div>
+    </div>
+</section>
+
+<h2 class="section-head">Go to</h2>
+<div class="linklist">
+    <a asp-controller="Books" asp-action="Index" class="linkrow">
+        <span class="linkrow-name">Books</span>
+        <span class="linkrow-desc">Browse and edit the catalogue</span>
+        <span class="linkrow-go">Open</span>
+    </a>
+    <a asp-controller="Members" asp-action="Index" class="linkrow">
+        <span class="linkrow-name">Members</span>
+        <span class="linkrow-desc">Students, faculty and regulars</span>
+        <span class="linkrow-go">Open</span>
+    </a>
 </div>
