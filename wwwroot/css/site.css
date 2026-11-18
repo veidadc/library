@@ -714,3 +714,207 @@ a {
     font-size: 0.8rem;
     background: #fff;
 }
+
+
+/* ================= Home page, version 2 (welcome split, library card, link list) ================= */
+.welcome {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin: 3rem 0 2.5rem;
+}
+
+@media (max-width: 800px) {
+    .welcome {
+        grid-template-columns: 1fr;
+    }
+
+    .libcard {
+        display: none;
+    }
+}
+
+.eyebrow {
+    color: var(--red);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+}
+
+.welcome h1 {
+    font-family: var(--serif);
+    font-size: 2.9rem;
+    line-height: 1.1;
+    color: var(--maroon);
+    margin: 0 0 1rem;
+    font-weight: 700;
+}
+
+.welcome-lead {
+    color: var(--muted);
+    font-size: 1.08rem;
+    max-width: 30rem;
+    margin: 0 0 1.5rem;
+}
+
+.welcome-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.btn-outline-maroon {
+    background: #fff;
+    border: 1px solid var(--maroon);
+    color: var(--maroon);
+}
+
+    .btn-outline-maroon:hover {
+        background: var(--maroon-soft);
+        border-color: var(--maroon-dark);
+        color: var(--maroon-dark);
+    }
+
+.libcard {
+    width: 100%;
+    max-width: 21rem;
+    justify-self: center;
+    background: #fff;
+    border: 1px solid var(--maroon-line);
+    border-radius: 14px;
+    box-shadow: 0 14px 40px rgba(122, 26, 36, 0.16);
+    transform: rotate(-3deg);
+    overflow: hidden;
+}
+
+.libcard-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--maroon);
+    color: #fff;
+    padding: 0.85rem 1.2rem;
+    font-family: var(--serif);
+    letter-spacing: 0.04em;
+    border-bottom: 3px solid var(--red);
+}
+
+.libcard-mark {
+    width: 0.8rem;
+    height: 1.1rem;
+    background: #fff;
+    border-radius: 2px;
+    border-left: 0.28rem solid var(--red);
+}
+
+.libcard-body {
+    padding: 1.5rem 1.2rem 1rem;
+}
+
+.libcard-line {
+    height: 0.6rem;
+    border-radius: 999px;
+    background: var(--maroon-soft);
+    margin-bottom: 0.8rem;
+}
+
+    .libcard-line.w40 {
+        width: 40%;
+    }
+
+    .libcard-line.w60 {
+        width: 60%;
+    }
+
+    .libcard-line.w75 {
+        width: 75%;
+    }
+
+.libcard-barcode {
+    height: 3rem;
+    margin: 0 1.2rem 1.3rem;
+    background: repeating-linear-gradient(90deg, var(--maroon) 0 2px, transparent 2px 5px, var(--maroon) 5px 6px, transparent 6px 10px);
+}
+
+.facts-band {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    border-top: 2px solid var(--maroon);
+    border-bottom: 1px solid var(--maroon-line);
+    margin-bottom: 0.5rem;
+}
+
+.fact {
+    padding: 1.2rem 1rem;
+    border-left: 1px solid var(--maroon-line);
+}
+
+    .fact:first-child {
+        border-left: 0;
+    }
+
+.fact-num {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--maroon);
+    line-height: 1.1;
+}
+
+.fact-label {
+    color: var(--muted);
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+}
+
+.linklist {
+    border-top: 1px solid var(--maroon-line);
+}
+
+.linkrow {
+    display: grid;
+    grid-template-columns: 9rem 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid var(--maroon-line);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background 0.15s, padding 0.15s;
+}
+
+    .linkrow:hover {
+        background: var(--maroon-soft);
+        padding-left: 1rem;
+        color: var(--ink);
+    }
+
+.linkrow-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--maroon);
+}
+
+.linkrow-desc {
+    color: var(--muted);
+}
+
+.linkrow-go {
+    color: var(--red);
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .linkrow {
+        grid-template-columns: 1fr auto;
+    }
+
+    .linkrow-desc {
+        display: none;
+    }
+}
