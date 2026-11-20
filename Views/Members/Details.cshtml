@@ -1,0 +1,56 @@
+﻿@model MemberDetails
+@{
+    ViewData["Title"] = Model.Member.FullName;
+    var booksOut = Model.Loans.Count(l => l.ReturnedOn == null);
+}
+
+<div class="pagehead">
+    <div>
+        <h1>@Model.Member.FullName</h1>
+        <p class="pagehead-sub"><span class="pill pill-@Model.Member.MemberType.ToLower()">@Model.Member.MemberType</span> &nbsp; @(Model.Member.Email ?? "no email")</p>
+    </div>
+    <a asp-action="Index" class="btn btn-quiet">Back to members</a>
+</div>
+
+<div class="stat-row">
+    <div class="stat-card">
+        <div class="stat-card-num">@Model.Loans.Count</div>
+        <div class="stat-card-label">Loans in total</div>
+    </div>
+    <div class="stat-card stat-card-red">
+        <div class="stat-card-num">@booksOut</div>
+        <div class="stat-card-label">Books out now</div>
+    </div>
+</div>
+
+<h2 class="section-head" style="margin-top:1.5rem">Loans</h2>
+@if (Model.Loans.Count == 0)
+{
+    <p class="hint">This member has never borrowed a book.</p>
+}
+else
+{
+    <div class="table-card">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Loaned</th>
+                    <th>Returned</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var loan in Model.Loans)
+                {
+                    <tr>
+                        <td class="strong">@loan.BookTitle</td>
+                        <td style="white-space:nowrap">@(loan.LoanedOn.ToString("MMM d, yyyy"))</td>
+                        <td style="white-space:nowrap">@(loan.ReturnedOn?.ToString("MMM d, yyyy") ?? "—")</td>
+                        <td><span class="pill pill-@loan.Status.ToLower()">@loan.Status</span></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
